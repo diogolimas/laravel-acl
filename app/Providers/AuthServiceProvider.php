@@ -49,5 +49,12 @@ class AuthServiceProvider extends ServiceProvider
             });
         }
 
+        $gate->before(function(User $user, $ability){
+            
+            if ( $user->hasAnyRoles('adm') )
+                return true;
+            
+            
+        });
     }
 }

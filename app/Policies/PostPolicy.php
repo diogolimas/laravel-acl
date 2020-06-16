@@ -22,7 +22,6 @@ class PostPolicy
     public function updatePost(User $user, Post $post){
        
             return $user->id == $post->user_id;
-       
-
     }
+    
 }
