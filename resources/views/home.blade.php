@@ -8,7 +8,7 @@
             <p>{{$post->description}}</p>
             <b>Autor: {{$post->user()->first()->name}}</b>
             @can('update-post', $post)
-            <a href="{{url('/post/'.$post->id.'/update')}}">Editar</a>
+                <a href="{{url('/post/'.$post->id.'/update')}}">Editar</a>
             @endcan
             <br>
         
