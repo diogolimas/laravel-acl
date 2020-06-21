@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use Gate;
 
-class HomeController extends Controller
+class SiteController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -29,8 +29,8 @@ class HomeController extends Controller
     {
 
        //$posts = $posts->where('user_id', Auth::user()->id)->get();
-       $posts = Post::all();
-        return view('home', compact('posts'));
+       //$posts = Post::all();
+        return view('Portal.home.index');
     }
     public function update($id)
     {
