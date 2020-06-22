@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 
+use Illuminate\Support\Facades\Gate as Gate;
 
 class PostController extends Controller
 {
@@ -14,7 +15,11 @@ class PostController extends Controller
         $this->post = $post;
     }
     
+
     public function index(){
+        if(Gate::denies('view_post')){
+            return redirect()->back();
+        }
         $posts = $this->post->all();
         return view('Painel.posts.index', compact('posts'));
     }

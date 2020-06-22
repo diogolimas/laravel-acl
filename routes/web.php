@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Portal\SiteController@index');
@@ -9,7 +10,7 @@ Route::get('/', 'Portal\SiteController@index');
 
 Auth::routes();
 
-Route::group(['prefix' => 'painel'], function () {
+Route::group(['prefix' => 'painel', 'middleware' => 'auth'], function () {
     //PainelController
     Route::get('/', 'Painel\PainelController@index');
     //PostController
@@ -26,8 +27,12 @@ Route::group(['prefix' => 'painel'], function () {
     
 });
 
+
+/*
 Route::get('/home', 'Painel\PainelController@index')->name('home');
 
 Route::get('/post/{id}/update', 'HomeController@update')->name('home');
 
 Route::get('/roles/permissions', 'HomeController@rolesPermissions');
+
+*/

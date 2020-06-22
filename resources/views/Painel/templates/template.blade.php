@@ -19,7 +19,7 @@
 	<div class="menu container-fluid">
 		<ul class="menu row">
 			<li class="col-md-2 text-center">
-				<a href="/home">
+				<a href="{{url('painel')}}">
                     
 					<img src="{{url('assets/painel/imgs/acl-branca.png')}}" alt="acl" class="logo-login">
 				</a>
@@ -30,13 +30,15 @@
 					<h1>Usuários</h1>
 				</a>
 			</li>
+			@can('view_post')
 			<li class="col-md-2 text-center">
 				<a href="/painel/posts">
                     <img src="{{url('assets/painel/imgs/noticias-acl.png')}}" alt="acl" class="logo-login">
 					
-					<h1>Notícias</h1>
+					<h1>Posts</h1>
 				</a>
 			</li>
+			@endcan
 			<li class="col-md-2 text-center">
 				<a href="/painel/roles">
                     

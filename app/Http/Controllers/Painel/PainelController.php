@@ -8,6 +8,7 @@ use App\User;
 use App\Role;
 use App\Permission;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PainelController extends Controller
 {
