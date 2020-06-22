@@ -12,6 +12,7 @@ use App\Post;
 class PainelController extends Controller
 {
     public function index(){
+       
         $totalUsers = User::count();
         $totalRoles = Role::count();
         $totalPermissions = Permission::count();

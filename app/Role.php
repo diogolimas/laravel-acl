@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use App\Role;
+
 use App\Permission;
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,7 +1,6 @@
 @extends('Painel.templates.template')
 
 
-
 @section('content')
 
 
@@ -23,26 +22,26 @@
 
 <div class="container">
     <h1 class="title">
-        Listagem dos posts
+        Listagem das permissions
     </h1>
 
     <table class="table table-hover">
         <tr>
-            <th>Title</th>
-            <th>Description</th>
+            <th>Name</th>
+            <th>Label</th>
             <th width="200px">Actions</th>
             
         </tr>
-        @forelse($posts as $post)
+        @forelse($permissions as $permission)
         <tr>
-            <td>{{$post->title}}</td>
-            <td>{{$post->description}}</td>
+            <td>{{$permission->name}}</td>
+            <td>{{$permission->label}}</td>
             
             <td>
-                <a href="{{url('/painel/post/$post->id/edit')}}" class="edit">
+                <a href="{{url('/painel/permission/$permission->id/edit')}}" class="edit">
                     <i class="fa fa-pencil-square-o"></i>
                 </a>
-                <a href="{{url('/painel/post/$post->id/delete')}}" class="delete">
+                <a href="{{url('/painel/permission/$permission->id/delete')}}" class="delete">
                     <i class="fa fa-trash"></i>
                 </a>
             </td>
@@ -50,7 +49,7 @@
         @empty
         <td>
             <td colspan="90">
-                <p>Nenhum post</p>
+                <p>Don't exits permissions</p>
             </td>
         </td>
         @endforelse
