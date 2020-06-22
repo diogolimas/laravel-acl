@@ -38,10 +38,13 @@
             <td>{{$permission->label}}</td>
             
             <td>
-                <a href="{{url('/painel/permission/$permission->id/edit')}}" class="edit">
+            <a href="{{url('/painel/permission/'.$permission->id.'/roles')}}" class="edit">
+                    <i class="fa fa-unlock"></i>
+                </a>
+                <a href="{{url('/painel/permission/'.$permission->id.'/edit')}}" class="edit">
                     <i class="fa fa-pencil-square-o"></i>
                 </a>
-                <a href="{{url('/painel/permission/$permission->id/delete')}}" class="delete">
+                <a href="{{url('/painel/permission/'.$permission->id.'/delete')}}" class="delete">
                     <i class="fa fa-trash"></i>
                 </a>
             </td>

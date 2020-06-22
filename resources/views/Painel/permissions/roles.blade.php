@@ -19,8 +19,8 @@
 
 <div class="container">
     <h1 class="title">
-        Permissions: <b>
-            {{$role->name}}
+        Role: <b>
+            {{$permission->name}}
         </b>
     </h1>
 
@@ -31,18 +31,18 @@
             <th width="200px">Actions</th>
 
         </tr>
-        @forelse($permissions as $permission)
+        @forelse($roles as $role)
         <tr>
-            <td>{{$permission->name}}</td>
-            <td>{{$permission->label}}</td>
+            <td>{{$role->name}}</td>
+            <td>{{$role->label}}</td>
 
             <td>
                
-                <a href="{{url('/painel/role/'.$permission->id.'/delete')}}" class="delete">
+                <a href="{{url('/painel/role/'.$role->id.'/delete')}}" class="btn btn-outline-success">
                     <i class="fa fa-trash"></i>
                 </a>
-                <a href="{{url('/painel/permission/'.$permission->id.'/roles')}}"  class="btn btn-outline-success">
-                    <i class="fa fa-user"></i>
+                <a href="{{url('/painel/role/'.$role->id.'/permission')}}" class="delete">
+                    <i class="fa fa-lock"></i>
                 </a>
             </td>
         </tr>

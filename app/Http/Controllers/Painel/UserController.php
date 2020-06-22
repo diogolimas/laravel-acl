@@ -17,4 +17,16 @@ class UserController extends Controller
         $users = $this->user->all();
         return view('Painel.users.index', compact('users'));
     }
+    public function roles($id)
+    {
+        
+        $id = intval($id);
+        
+        $user = $this->user->find($id);
+
+        $roles = $user->roles()->get();
+
+        return view('Painel.users.roles', compact('user', 'roles'));
+
+    }
 }
