@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'SiteController@index');
+Route::get('/', 'Portal\SiteController@index');
 
 
 
@@ -12,11 +12,11 @@ Auth::routes();
 Route::group(['prefix' => 'painel'], function () {
     //PainelController
     Route::get('/', 'Painel\PainelController@index');
-    //POstController
-
+    //PostController
+    Route::get('posts', 'Painel\PostController@index');
     //PermissionController
 
-    //RoleController
+    //RoleController    
 
 });
 
