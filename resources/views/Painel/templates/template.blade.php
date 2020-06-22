@@ -24,12 +24,14 @@
 					<img src="{{url('assets/painel/imgs/acl-branca.png')}}" alt="acl" class="logo-login">
 				</a>
 			</li>
+			@can('user')
 			<li class="col-md-2 text-center">
 				<a href="/painel/users">
                 <img src="{{url('assets/painel/imgs/perfil-acl.png')}}" alt="acl" class="logo-login">
 					<h1>Usuários</h1>
 				</a>
 			</li>
+			@endcan
 			@can('view_post')
 			<li class="col-md-2 text-center">
 				<a href="/painel/posts">
@@ -39,6 +41,7 @@
 				</a>
 			</li>
 			@endcan
+			@can('adm')
 			<li class="col-md-2 text-center">
 				<a href="/painel/roles">
                     
@@ -55,6 +58,8 @@
 					<h1>Permissões</h1>
 				</a>
 			</li>
+
+			@endcan
 			<li class="col-md-2 text-center">
 				<form action="/logout" method="post">
 				@csrf
