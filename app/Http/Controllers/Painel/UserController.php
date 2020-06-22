@@ -12,20 +12,21 @@ class UserController extends Controller
     private $user;
     public function __construct(User $user){
         $this->user = $user;
+        if(Gate::denies('user')){
+            return abort(403, 'não autorizado!');
+        }
     }
     
     public function index(){
-        if(Gate::denies('user')){
-            return redirect()->back();
-        }
+        //if(Gate::denies('user')){
+     
         $users = $this->user->all();
         return view('Painel.users.index', compact('users'));
+
     }
     public function roles($id)
     {
-        if(Gate::denies('user')){
-            return redirect()->back();
-        }
+        
         
         $id = intval($id);
         

@@ -12,20 +12,20 @@ class RoleController extends Controller
     private $role;
     public function __construct(Role $role){
         $this->role = $role;
+        if(Gate::denies('adm')){
+            abort(403);
+        }
     }
+ 
     
     public function index(){
-        if(Gate::denies('adm')){
-            return redirect()->back();
-        }
+       
         $roles = $this->role->all();
         return view('Painel.roles.index', compact('roles'));
     }
     public function permissions($id)
     {
-        if(Gate::denies('adm')){
-            return redirect()->back();
-        }
+        
         $id = intval($id);
         
         $role = $this->role->find($id);

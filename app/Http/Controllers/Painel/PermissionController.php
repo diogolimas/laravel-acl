@@ -12,12 +12,15 @@ class PermissionController extends Controller
     private $permission;
     public function __construct(Permission $permission){
         $this->permission = $permission;
-    }
-    
-    public function index(){
-        if(Gate::denies('user')){
-            return redirect()->back();
+        if(Gate::denies('adm')){
+            abort(403,'Não autorizado');
+          //  return redirect()->back();
         }
+    }
+ 
+    public function index(){
+       
+      
         $permissions = $this->permission->all();
         return view('Painel.permissions.index', compact('permissions'));
     }

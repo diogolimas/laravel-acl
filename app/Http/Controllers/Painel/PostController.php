@@ -18,7 +18,7 @@ class PostController extends Controller
 
     public function index(){
         if(Gate::denies('view_post')){
-            return redirect()->back();
+            return abort(403, 'não autorizado!');
         }
         $posts = $this->post->all();
         return view('Painel.posts.index', compact('posts'));
